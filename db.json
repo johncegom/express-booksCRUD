@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "One Piece",
+      "description": "Adventure of Luffy Mugiwara"
+    },
+    {
+      "id": 2,
+      "title": "Dragon Ball",
+      "description": "Songoku's adventure"
+    }
+  ]
+}
