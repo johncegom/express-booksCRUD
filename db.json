@@ -9,6 +9,21 @@
       "id": 2,
       "title": "Dragon Ball",
       "description": "Songoku's adventure"
+    },
+    {
+      "id": 3,
+      "title": "Naruto",
+      "description": ""
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A"
+    },
+    {
+      "id": 2,
+      "name": "Trần Đức B"
     }
   ]
 }
