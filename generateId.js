@@ -1,7 +1,7 @@
 const db = require('./db');
 
 function generateId(typeName) {
-  let todos = db.get("books").value();
+  let todos = db.get(typeName).value();
   let temp, temp1;
   for (let i = 0; i < todos.length; i++) {
     temp1 = db

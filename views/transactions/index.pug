@@ -1,0 +1,23 @@
+h1 Transactions List
+form(action="/transactions/search", method="GET")
+  input(type="text", name="q", value=q, placeholder="Search by username...")
+  button Search
+  span &nbsp
+  a(href="/transactions/add") Add New
+ul
+  each transaction in transactions
+    li
+      p
+        span Transaction Id: 
+        span= transaction.id
+        span &nbsp
+        span User Name: 
+        span= transaction.username
+        span &nbsp
+        span Book Title: 
+        span= transaction.bookTitle
+        //span &nbsp
+        //a(href="/transactions/" + transaction.id + "/update") Update
+        span &nbsp
+        a(href="/transactions/" + transaction.id + "/delete") Delete
+        
