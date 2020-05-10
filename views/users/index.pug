@@ -1,0 +1,17 @@
+h1 Users List
+form(action="/users/search", method="GET")
+  input(type="text", name="q", value=q)
+  button Search
+  span &nbsp
+  a(href="/users/add") Add New
+ul
+  each user in users
+    li
+      p
+        span Name: 
+        span= user.name
+        span &nbsp
+        a(href="/users/" + user.id + "/update") Update
+        span &nbsp
+        a(href="/users/" + user.id + "/delete") Delete
+        
