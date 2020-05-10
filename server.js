@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const db = require("./db");
 const booksRoute = require("./routes/books.route");
 const usersRoute = require("./routes/users.route");
+const transactionsRoute = require("./routes/transactions.route");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.use("/books", booksRoute);
 app.use("/users", usersRoute);
+app.use("/transactions", transactionsRoute);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
