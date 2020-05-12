@@ -1,20 +1,28 @@
-h1 Books List
-form(action="/books/search", method="GET")
-  input(type="text", name="q", value=q, placeholder="Search by book title..")
-  button Search
-  span &nbsp
-  a(href="/books/add") Add New
-ul
-  each book in books
-    li
-      p
-        span Title: 
-        span= book.title
-      p
-        span Description: 
-        span= book.description
-        span &nbsp
-        a(href="/books/" + book.id + "/update") Update
-        span &nbsp
-        a(href="/books/" + book.id + "/delete") Delete
-        
+extends ../layouts/common
+
+block content
+
+  h1 Books List
+  form(action="/books/search", method="GET")
+    div(class="form-group form-inline")
+      input(class="form-control mr-2", type="text", name="q", value=q, placeholder="Search by book title..")
+      button(class="btn btn-dark") Search
+      span &nbsp
+      a(class="btn-dark btn", href="/books/add") Add New
+    
+  table(class="table")
+    thead
+      tr
+        th(scope="col") Title
+        th(scope="col") Description
+        th(scope="col") Action
+    tbody
+      each book in books
+        tr
+          td= book.title
+          td= book.description
+          td
+            a(class="btn d-inline btn-success" ,href="/books/" + book.id + "/update") Update
+            span &nbsp
+            a(class="btn d-inline btn-danger" ,href="/books/" + book.id + "/delete") Delete
+            

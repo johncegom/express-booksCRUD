@@ -19,7 +19,8 @@ function customTransactions() {
     temp = {
       id: transaction.id,
       username: username.name,
-      bookTitle: bookTitle.title
+      bookTitle: bookTitle.title,
+      isComplete: transaction.isComplete
     };
     customTransactions.push(temp);
   }
@@ -57,9 +58,11 @@ module.exports.search = (req, res) => {
 
 module.exports.delete = (req, res) => {
   var id = parseInt(req.params.id);
-  
-  db.get('transactions').remove({ id: id }).write();
-  res.redirect('back');
+
+  db.get("transactions")
+    .remove({ id: id })
+    .write();
+  res.redirect("back");
 };
 
 module.exports.postAdd = (req, res) => {
@@ -77,3 +80,10 @@ module.exports.postAdd = (req, res) => {
   res.redirect("/transactions");
 };
 
+module.exports.complete = (req, res) => {
+  var id = parseInt(req.params.id);
+  db.get("transactions")
+    .find({ id: id })
+    .assign({ isComplete: true })
+    .write();
+};

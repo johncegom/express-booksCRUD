@@ -1,23 +1,28 @@
-h1 Transactions List
-form(action="/transactions/search", method="GET")
-  input(type="text", name="q", value=q, placeholder="Search by username...")
-  button Search
-  span &nbsp
-  a(href="/transactions/add") Add New
-ul
-  each transaction in transactions
-    li
-      p
-        span Transaction Id: 
-        span= transaction.id
-        span &nbsp
-        span User Name: 
-        span= transaction.username
-        span &nbsp
-        span Book Title: 
-        span= transaction.bookTitle
-        //span &nbsp
-        //a(href="/transactions/" + transaction.id + "/update") Update
-        span &nbsp
-        a(href="/transactions/" + transaction.id + "/delete") Delete
-        
+extends ../layouts/common
+block content
+  h1 Transactions List
+  form(action="/transactions/search", method="GET")
+    div.form-group.form-inline
+      input(class="form-control mr-2", type="text", name="q", value=q, placeholder="Search by username...")
+      button.btn.btn-dark Search
+      span &nbsp
+      a(class="btn btn-dark", href="/transactions/add") Add New
+    
+  table(class="table")
+    thead
+      tr
+        th(scope="col") Transaction Id
+        th(scope="col") User Name
+        th(scope="col") Book Title
+        th(scope="col") Action
+    tbody
+      each transaction in transactions
+        tr
+          td= transaction.id
+          td= transaction.username
+          td= transaction.bookTitle
+          unless transaction.isComplete
+            td
+              a(class="btn d-inline btn-success" ,href="/transactions/" + transaction.id + "/update") Complete
+              span &nbsp
+              a(class="btn d-inline btn-danger" ,href="/transactions/" + transaction.id + "/delete") Delete  

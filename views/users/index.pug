@@ -1,17 +1,23 @@
-h1 Users List
-form(action="/users/search", method="GET")
-  input(type="text", name="q", value=q)
-  button Search
-  span &nbsp
-  a(href="/users/add") Add New
-ul
-  each user in users
-    li
-      p
-        span Name: 
-        span= user.name
-        span &nbsp
-        a(href="/users/" + user.id + "/update") Update
-        span &nbsp
-        a(href="/users/" + user.id + "/delete") Delete
-        
+extends ../layouts/common
+block content  
+  h1 Users List
+  form(action="/users/search", method="GET")
+    div.form-group.form-inline
+      input(class="form-control mr-2", type="text", name="q", value=q)
+      button.btn.btn-dark Search
+      span &nbsp
+      a(class="btn btn-dark", href="/users/add") Add New
+    
+  table(class="table")
+    thead
+      tr
+        th(scope="col") Name
+        th(scope="col") Action
+    tbody
+      each user in users
+        tr
+          td= user.name
+          td
+            a(class="btn d-inline btn-success" ,href="/users/" + user.id + "/update") Update
+            span &nbsp
+            a(class="btn d-inline btn-danger" ,href="/users/" + user.id + "/delete") Delete

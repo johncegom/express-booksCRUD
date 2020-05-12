@@ -14,6 +14,8 @@ router.get("/search", transactionsController.search);
 
 router.get("/:id/delete", transactionsController.delete);
 
+router.get("/:id/complete", transactionsController.complete);
+
 router.post("/add", transactionsController.postAdd);
 
 module.exports = router;

@@ -1,7 +1,9 @@
-h3 Update User
-form(action="/users/" + user.id + "/update", method="POST")
-  div
-    label User Name &nbsp
-    input(type="text", name="name", value = user.name)
-  br
-  button Update
+extends ../layouts/common
+block content
+  h3 Update User
+  form(action="/users/" + user.id + "/update", method="POST")
+    div.form-group
+      label User Name &nbsp
+      input(class="form-control", type="text", name="name", value = user.name)
+    br
+    button.btn.btn-success Update

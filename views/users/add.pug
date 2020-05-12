@@ -1,7 +1,9 @@
-h3 Add New Book
-form(action="/users/add", method="POST")
-  div
-    label User Name &nbsp
-    input(type="text", name="name")
-  br
-  button Add
+extends ../layouts/common
+block content
+
+  h3 Add New Book
+  form(action="/users/add", method="POST")
+    div.form-group
+      label User Name &nbsp
+      input(class="form-control", type="text", name="name")
+    button.btn.btn-dark Add
