@@ -1,16 +1,15 @@
-h3 Add New Transaction
-form(action="/transactions/add", method="POST")
-  div
-    label User Name &nbsp
-    select(required, name = "user")
-      each user in users
-        option(value = user.id)= user.name
-      
-  br
-  div
-    label Book Title &nbsp
-    select(required, name = "book")
-      each book in books
-        option(value = book.id)= book.title
-  br
-  button Add
+extends ../layouts/common
+block content  
+  h3 Add New Transaction
+  form(action="/transactions/add", method="POST")
+    div.form-group.form-inline
+      label User Name &nbsp
+      select(class="form-control", required, name = "user")
+        each user in users
+          option(value = user.id)= user.name
+    div.form-group.form-inline
+      label Book Title &nbsp
+      select(class="form-control", required, name = "book")
+        each book in books
+          option(value = book.id)= book.title
+    button.btn.btn-dark Add

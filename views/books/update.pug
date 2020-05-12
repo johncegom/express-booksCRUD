@@ -1,11 +1,12 @@
-h3 Update Book
-form(action="/books/" + book.id + "/update", method="POST")
-  div
-    label Book Title &nbsp
-    input(type="text", name="title", value = book.title)
-  br
-  div
-    label Book Description &nbsp
-    input(type="text", name="description", value = book.description)
-  br
-  button Update
+extends ../layouts/common
+block content
+
+  h3 Update Book
+  form(action="/books/" + book.id + "/update", method="POST")
+    div(class="form-group")
+      label Book Title &nbsp
+      input(class="form-control", type="text", name="title", value = book.title)
+    div(class="form-group")
+      label Book Description &nbsp
+      input(class="form-control", type="text", name="description", value = book.description)
+    button(class="btn btn-success") Update

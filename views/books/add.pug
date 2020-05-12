@@ -1,11 +1,12 @@
-h3 Add New Book
-form(action="/books/add", method="POST")
-  div
-    label Book Title &nbsp
-    input(type="text", name="title")
-  br
-  div
-    label Book Description &nbsp
-    input(type="text", name="description")
-  br
-  button Add
+extends ../layouts/common
+block content
+
+  h3 Add New Book
+  form(action="/books/add", method="POST")
+    div(class="form-group")
+      label Book Title &nbsp
+      input(class="form-control", type="text", name="title")
+    div(class="form-group")
+      label Book Description &nbsp
+      input(class="form-control", type="text", name="description")
+    button(class="btn btn-dark") Add
