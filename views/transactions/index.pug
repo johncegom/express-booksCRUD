@@ -7,7 +7,10 @@ block content
       button.btn.btn-dark Search
       span &nbsp
       a(class="btn btn-dark", href="/transactions/add") Add New
-    
+  
+  if(error)
+    .alert.alert-danger= error
+  
   table(class="table")
     thead
       tr

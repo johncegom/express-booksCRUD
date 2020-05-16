@@ -82,6 +82,16 @@ module.exports.postAdd = (req, res) => {
 
 module.exports.complete = (req, res) => {
   var id = parseInt(req.params.id);
+  let dbId = db.get('transactions').find({ id: id }).value();
+  var error = "This transaction Id doesn't exist!";
+  
+  if (!dbId) {
+    res.render("transactions/index", {
+      transactions: customTransactions(),
+      error: error
+    });
+    return;
+  }
   db.get("transactions")
     .find({ id: id })
     .assign({ isComplete: true })

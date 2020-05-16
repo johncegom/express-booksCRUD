@@ -35,7 +35,7 @@
       "id": 1,
       "userId": 2,
       "bookId": 1,
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 2,
