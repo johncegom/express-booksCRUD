@@ -23,6 +23,6 @@ block content
           td= transaction.bookTitle
           unless transaction.isComplete
             td
-              a(class="btn d-inline btn-success" ,href="/transactions/" + transaction.id + "/update") Complete
+              a(class="btn d-inline btn-success" ,href="/transactions/" + transaction.id + "/complete") Complete
               span &nbsp
               a(class="btn d-inline btn-danger" ,href="/transactions/" + transaction.id + "/delete") Delete  
