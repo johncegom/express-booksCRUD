@@ -15,12 +15,13 @@ const app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.static('public'));
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 
 app.get("/", (req, res) => {
-  res.send("This is main page!");
+  res.render("layouts/common");
 });
 
 app.use("/books", booksRoute);
