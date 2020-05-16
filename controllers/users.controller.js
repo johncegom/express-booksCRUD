@@ -43,15 +43,6 @@ module.exports.getUpdate = (req, res) => {
 };
 
 module.exports.postAdd = (req, res) => {
-  var name = req.body.name;
-  if (name.length > 30) {
-    let error = "Your username is too long (> 30 chars)!";
-    res.render("users/add", {
-      name: name,
-      error: error
-    })
-    return;
-  }
   var newUser = {
     id: generateId("users"),
     name: name
