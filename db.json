@@ -59,5 +59,11 @@
       "bookId": 1,
       "isComplete": true
     }
+  ],
+  "cookies": [
+    {
+      "name": "count",
+      "value": 13
+    }
   ]
 }
